@@ -55,9 +55,7 @@ class BrandingCard extends StatelessWidget {
                             _FeatureTag(
                                 icon: Icons.blur_on, text: 'Live blurring'),
                             const SizedBox(width: 8),
-                            _FeatureTag(
-                                icon: Icons.switch_right,
-                                text: 'Instant toggle'),
+                          
                             const SizedBox(width: 8),
                             _FeatureTag(
                                 icon: Icons.security, text: 'Privacy shield'),
@@ -72,7 +70,7 @@ class BrandingCard extends StatelessWidget {
                           color: Colors.grey[800],
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 16),
                       Text(
                         'Contrôle total de votre confidentialité visuelle',
                         style: TextStyle(
@@ -105,7 +103,7 @@ class _FeatureTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
       decoration: BoxDecoration(
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(16),
@@ -118,7 +116,7 @@ class _FeatureTag extends StatelessWidget {
           Text(
             text,
             style: const TextStyle(
-              fontSize: 7,
+              fontSize: 11,
               fontWeight: FontWeight.w500,
             ),
           ),

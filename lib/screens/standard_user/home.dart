@@ -9,7 +9,7 @@ import '../../ui/app_filter.dart';
 import '../../ui/branding_card.dart';
 import '../../ui/device_app_card.dart';
 import '../../ui/search_zone.dart';
-import '../../ui/teacher_card_deco.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

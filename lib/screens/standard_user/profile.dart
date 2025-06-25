@@ -15,18 +15,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: const Text('Mon Profil'),
-        centerTitle: true,
-        backgroundColor: AppColors.background,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.settings, color: AppColors.secondary),
-            onPressed: () => _showSettings(context),
-          ),
-        ],
-      ),
+     
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -164,13 +153,14 @@ class ProfileScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () => _editProfile(context),
+                    
                     icon: const Icon(Icons.edit, color: Colors.white),
                     label: const Text(
                       "Modifier",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.secondary,
+                      backgroundColor: AppColors.primary,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
