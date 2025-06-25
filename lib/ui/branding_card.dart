@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media_blur_app/constants/colors.dart';
 
 class BrandingCard extends StatelessWidget {
   final String imagePath;
@@ -18,7 +19,7 @@ class BrandingCard extends StatelessWidget {
           ? const EdgeInsets.symmetric(horizontal: 16)
           : EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.primary,
         borderRadius: BorderRadius.circular(28),
       ),
       child: ClipRRect(

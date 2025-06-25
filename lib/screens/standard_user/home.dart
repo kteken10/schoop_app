@@ -5,6 +5,7 @@ import 'package:installed_apps/installed_apps.dart';
 import 'package:installed_apps/app_info.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import '../../constants/colors.dart';
+import '../../ui/animated_search_field.dart';
 import '../../ui/app_filter.dart';
 import '../../ui/branding_card.dart';
 import '../../ui/device_app_card.dart';
@@ -114,9 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 isOnline: true,
               ),
             ),
-            const Expanded(
-             
-            ),
+           
           ],
         ),
         actions: [
@@ -143,15 +142,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 16),
                 BrandingCard(imagePath: 'assets/girl_smile.png'),
                 Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: SearchZone(
-                    controller: searchController,
-                    hintText: 'search app',
-                    onChanged: (value) => setState(() {}),
-                    showSearchIcon: true,
-                    spacing: 8,
-                  ),
-                ),
+  padding: const EdgeInsets.all(16),
+  child: Row(
+    children: [
+      Expanded(
+        child: AnimatedSearchField(
+          controller: searchController,
+          onChanged: (value) => setState(() {}),
+          hintText: 'Search app...',
+        ),
+      ),
+      
+    ],
+  ),
+),
                 AppTypeFilter(
                   selectedType: selectedAppType,
                   onTypeSelected: (type) {
