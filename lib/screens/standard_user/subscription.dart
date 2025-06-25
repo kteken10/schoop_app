@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background ,
       appBar: AppBar(title: const Text("Abonnement")),
       body: Column(
         children: [
@@ -20,7 +23,7 @@ class SubscriptionScreen extends StatelessWidget {
           const Divider(),
           ...['Flou illimité', 'Apps sélectionnables', 'Support prioritaire'].map(
             (feature) => ListTile(
-              leading: const Icon(Icons.check_circle, color: Colors.amber),
+              leading: const Icon(Icons.check_circle, color: AppColors.secondary),
               title: Text(feature),
             ),
           ),

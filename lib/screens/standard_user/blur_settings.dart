@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+
 class BlurSettingsScreen extends StatelessWidget {
   const BlurSettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Paramètres'),
+      
+        automaticallyImplyLeading: false,
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),

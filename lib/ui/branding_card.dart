@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:media_blur_app/constants/colors.dart';
+
+import '../constants/colors.dart';
 
 class BrandingCard extends StatelessWidget {
   final String imagePath;
@@ -105,6 +106,7 @@ class _FeatureTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+      
       decoration: BoxDecoration(
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(16),

@@ -1,128 +1,79 @@
-# 📚 EduTrack - Gestion Scolaire 📊
+# 📱 Media Blur Mobile App (Demo Version)
 
-<p align="center">
-  <img alt="EduTrack Logo" src="./assets/icon.png" width="124px" style="border-radius:16px"/>
-</p>
+## 🔍 Overview
+**Media Blur** is a proof-of-concept mobile application demonstrating a privacy-oriented screen blur feature. This demo version showcases the main functionalities and design concept of the app, providing a practical glimpse into how the final product could operate.
 
-<p align="center">
-  <a href="https://flutter.dev/">
-    <img alt="Flutter" src="https://img.shields.io/badge/Flutter-v3.16-blue.svg?style=flat-square&logo=flutter" />
-  </a>
-  <a href="https://firebase.google.com/">
-    <img alt="Firebase" src="https://img.shields.io/badge/Firebase-12.4.6-FFCA28.svg?style=flat-square&logo=firebase" />
-  </a>
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" />
-  <img alt="Version" src="https://img.shields.io/badge/Version-1.0.0-blue.svg?style=flat-square" />
-</p>
+---
 
-## 📖 Description
-Application mobile développée avec **Flutter** et **Firebase**, dédiée à la gestion académique des établissements scolaires. Elle permet aux enseignants et administrateurs de :
+## 🎯 Objective of the Demo
+To provide an operational demonstration of the core functionalities of the **Media Blur Application**, including:
+- Real-time blur effect
+- Minimalist user interface
+- Toggle switch integration for service activation
+- Basic permission handling
+- Preview of admin access interface
 
-- Suivre les performances des étudiants
-- Gérer les évaluations et notes
-- Générer des rapports détaillés
-- Faciliter la communication entre les parties prenantes
+---
 
-## ✨ Fonctionnalités Clés
+## 🚀 Key Features
 
-### 👨‍🎓 Gestion des Étudiants
-- Création et modification de profils étudiants
-- Historique académique (années/semestres)
-- Classement et statistiques par promotion
+### 1. Basic UI/UX Interface
+- 🏠 Simple home screen with branding
+- 🔘 Toggle switch to enable/disable blur effect
+- 👤 Placeholder login/subscription screen (mock interface only)
 
-### 📝 Gestion des Notes
-- Interface intuitive pour saisir les notes
-- Coefficients personnalisables par matière
-- Calcul automatique des moyennes générales et spécifiques
-- Visualisation des performances via des graphiques dynamiques
+### 2. Real-Time Blur Feature (Core Demo)
+- 🖼️ Blur effect applied on screen overlays or selected apps
+- 🔄 Basic live testing: Blur is visible when images/videos are viewed (outside Gallery)
+- 🔧 Blur intensity fixed or limited to 1-2 levels
 
-### 📊 Tableaux de Bord
-- Vue enseignant : suivi des classes, notifications
-- Vue administrateur : gestion globale, alertes sur données manquantes
-- Exportation des données en PDF ou CSV
+### 3. Notification Bar Toggle
+- 📲 Persistent notification with interactive toggle
+- 📴 Click to activate/deactivate the blur service
+- 📡 Status text updates dynamically to indicate whether the blur is ON or OFF
 
-### 🔐 Sécurité
-- Authentification Firebase (rôles : Admin / Enseignant / Étudiant)
-- Protection des données (chiffrement, règles de sécurité Firestore)
-- Historique et journalisation des activités sensibles
+### 4. Permission Handling
+- 🔐 Automatic prompts for Android permissions:
+  - Accessibility permission
+  - Overlay permission
 
-## 🖼️ Captures d'Écran
-<p align="center">
-  <kbd>
-    <img src="./screenshots/login.png" width="200" alt="Écran de connexion"/>
-    <em>Connexion sécurisée</em>
-  </kbd>
-  <kbd>
-    <img src="./screenshots/dashboard.png" width="200" alt="Tableau de bord"/>
-    <em>Tableau de bord</em>
-  </kbd>
-  <kbd>
-    <img src="./screenshots/grades.png" width="200" alt="Saisie des notes"/>
-    <em>Saisie des notes</em>
-  </kbd>
-</p>
+### 5. Basic Admin Access (Optional Preview)
+- 🔑 Admin login interface (non-functional in demo)
+- 📊 Mock UI with:
+  - User count placeholder
+  - Subscription toggle preview
 
-## 🛠️ Architecture Technique
-```mermaid
-graph TD
-  A[Flutter Frontend] --> B[Firebase Auth]
-  A --> C[Firestore Database]
-  A --> D[Firebase Storage]
-  A --> E[Firebase Messaging]
-  C --> F[PDF/CSV Exports]
-  D --> G[Cloud Backups]
+### 6. Logs and Monitoring (Internal Testing)
+- 🧪 Console logs include:
+  - Blur application events
+  - User interactions
+  - Toggle activity
+
+---
+
+## 🛠️ Tech Stack
+- Flutter (cross-platform framework)
+- Dart (programming language)
+- Android SDK (native permissions & overlays)
+
+---
+
+## 📁 Project Structure (Demo)
+```
+lib/
+├── models/               # Data models
+├── providers/            # State management
+├── screens/              # UI Screens (Login, Home, Admin)
+├── services/             # Logic and services (blur service, permissions)
+└── constants/            # App colors and styles
 ```
 
-### 📦 Dépendances Principales
-| Package Flutter | Utilisation |
-|-----------------|------------|
-| firebase_core | Initialisation Firebase |
-| firebase_auth | Authentification utilisateur |
-| cloud_firestore | Base de données temps réel |
-| firebase_storage | Sauvegarde de fichiers |
-| firebase_messaging | Notifications push |
-| flutter_local_notifications | Notifications locales |
-| file_picker | Importation de fichiers |
-| path_provider | Accès fichiers locaux |
-| share_plus | Partage de fichiers |
-| multi_select_flutter | Sélections multiples |
-| flutter_staggered_animations | Animations d’UI |
-| salomon_bottom_bar | Barre de navigation personnalisée |
+---
 
-## 🚀 Installation
+## 📌 Disclaimer
+This version is a **demo** and does not reflect the final, production-level security or features. It is built to validate the feasibility of real-time blur application and user interaction flow.
 
-### Cloner le projet :
-```bash
-git clone https://github.com/votre-repo/edutrack.git
-cd edutrack
-```
+---
 
-### Installer les dépendances :
-```bash
-flutter pub get
-```
-
-### Configurer Firebase :
-1. Créer un projet Firebase
-2. Ajouter les fichiers `google-services.json` (Android) et `GoogleService-Info.plist` (iOS)
-3. Vérifier que les règles Firestore sont sécurisées
-
-### Lancer l'application :
-```bash
-flutter run
-```
-
-## 🤝 Contribution
-1. Forker le projet
-2. Créer une branche : `git checkout -b feature/ma-feature`
-3. Commiter vos changements : `git commit -m "Ajout de ma feature"`
-4. Pousser la branche : `git push origin feature/ma-feature`
-5. Ouvrir une Pull Request
-
-## 📄 Licence
-Distribué sous licence **MIT**. Voir le fichier `LICENSE` pour plus d’informations.
-
-## ✉️ Contact
-**Dissang Kevin** - dissangfrancis@yahoo.com  
-Lien du projet : [Projetc Link](https://github.com/kteken10/flutter_school_app)
-
+## 🧑‍💻 Author
+Dissang Kevin – Keyce Informatique, Douala, Cameroon

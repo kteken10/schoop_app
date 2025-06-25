@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import '../../constants/colors.dart';
 import 'home.dart';
 import 'blur_settings.dart';
 import 'profile.dart';
@@ -67,25 +68,25 @@ class _StandartUserBottomState extends State<StandartUserBottom> with SingleTick
           SalomonBottomBarItem(
             icon: _buildAnimatedIcon(Icons.home, _currentIndex == 0),
             title: const Text("Accueil"),
-            selectedColor: Colors.blueAccent,
+            selectedColor:AppColors.primary,
             unselectedColor: Colors.grey,
           ),
           SalomonBottomBarItem(
             icon: _buildAnimatedIcon(Icons.workspace_premium, _currentIndex == 1),
             title: const Text("Premium"),
-            selectedColor: Colors.amber,
+             selectedColor:AppColors.primary,
             unselectedColor: Colors.grey,
           ),
           SalomonBottomBarItem(
             icon: _buildAnimatedIcon(Icons.tune, _currentIndex == 2),
             title: const Text("Réglages"),
-            selectedColor: Colors.green,
+            selectedColor:AppColors.primary,
             unselectedColor: Colors.grey,
           ),
           SalomonBottomBarItem(
             icon: _buildAnimatedIcon(Icons.person, _currentIndex == 3),
             title: const Text("Profil"),
-            selectedColor: Colors.purple,
+             selectedColor:AppColors.primary,
             unselectedColor: Colors.grey,
           ),
         ],

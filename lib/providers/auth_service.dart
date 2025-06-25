@@ -80,7 +80,8 @@ class AuthService extends ChangeNotifier {
   }
 
   void logout() {
-    _currentUser = null;
+    // _currentUser = null;
+     
     notifyListeners();
   }
 

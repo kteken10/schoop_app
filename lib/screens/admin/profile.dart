@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../constants/colors.dart';
 import '../../models/user.dart';
 import '../../providers/auth_service.dart';
+import '../auth/login_screen.dart';
 
 class AdminProfileScreen extends StatelessWidget {
   const AdminProfileScreen({super.key});
@@ -300,7 +301,11 @@ class AdminProfileScreen extends StatelessWidget {
           TextButton(
             onPressed: () {
               authService.logout();
-              Navigator.popUntil(context, (route) => route.isFirst);
+             Navigator.pushReplacement(
+              // ignore: use_build_context_synchronously
+              context,
+              MaterialPageRoute(builder: (_) => const LoginScreen())
+            );
             },
             child: const Text(
               'Déconnexion',
