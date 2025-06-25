@@ -8,8 +8,8 @@ import '../../constants/colors.dart';
 import '../../ui/app_filter.dart';
 import '../../ui/branding_card.dart';
 import '../../ui/device_app_card.dart';
+import '../../ui/pulsing_avatar.dart';
 import '../../ui/search_zone.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
     
     try {
       final allApps = await InstalledApps.getInstalledApps(true, true);
-      // Pré-charger le statut système des apps
       for (final app in allApps) {
         _appSystemStatusCache[app.packageName] = 
             await InstalledApps.isSystemApp(app.packageName) ?? false;
@@ -83,12 +82,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final filter = searchController.text.toLowerCase();
     
     return apps.where((app) {
-      // Filtre par nom
       if (!app.name.toLowerCase().contains(filter)) {
         return false;
       }
       
-      // Filtre par type si sélectionné
       if (selectedAppType != null && selectedAppType != 'Toutes') {
         final isSystem = _appSystemStatusCache[app.packageName] ?? false;
         if (selectedAppType == 'Système' && !isSystem) return false;
@@ -107,15 +104,32 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: AppColors.background,
-      
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            SizedBox(
+              width: 60, // Largeur réduite pour le PulsingAvatar
+              child: PulsingAvatar(
+                imagePath: 'assets/user_picture.png',
+                isOnline: true,
+              ),
+            ),
+            const Expanded(
+             
+            ),
+          ],
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadApps,
           ),
-          Switch(
-            value: blurCurrent,
-            onChanged: (v) => setState(() => blurCurrent = v),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Switch(
+              value: blurCurrent,
+              onChanged: (v) => setState(() => blurCurrent = v),
+            ),
           ),
         ],
       ),
@@ -126,8 +140,8 @@ class _HomeScreenState extends State<HomeScreen> {
           else
             Column(
               children: [
-                  const SizedBox(height: 16),
-BrandingCard(imagePath:'assets/girl_smile.png'),
+                const SizedBox(height: 16),
+                BrandingCard(imagePath: 'assets/girl_smile.png'),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: SearchZone(
